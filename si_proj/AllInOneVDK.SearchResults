@@ -1,0 +1,4 @@
+---- StdioUartInit Matches (3 in 3 files) ----
+Main.cpp (embedded):    StdioUartInit(dcbServer);
+StdioUart.c (embedded\drivers):void StdioUartInit(ADI_DCB_HANDLE dcbServer)
+StdioUart.h (embedded\drivers):extern void StdioUartInit(ADI_DCB_HANDLE dcbServer);
