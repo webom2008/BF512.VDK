@@ -170,6 +170,7 @@ static void CallbackFunction(void *ClientHandle, u32 Event, void *pArg) {
 #ifdef CONFIG_USER_PRINTF
 int udprintf_init(void)
 {
+    u32 i;
 	u32 Result; // return code
 
 	// open the UART driver, parameters are

@@ -24,10 +24,19 @@ LedThread::Run()
     
     flagResult = adi_flag_Open (ADI_FLAG_PF6);
     while (ADI_FLAG_RESULT_SUCCESS != flagResult){};
+    flagResult = adi_flag_Open (ADI_FLAG_PF5);
+    while (ADI_FLAG_RESULT_SUCCESS != flagResult){};
+    
     flagResult = adi_flag_SetDirection(ADI_FLAG_PF6, ADI_FLAG_DIRECTION_OUTPUT);
     while (ADI_FLAG_RESULT_SUCCESS != flagResult){};
+    flagResult = adi_flag_SetDirection(ADI_FLAG_PF5, ADI_FLAG_DIRECTION_OUTPUT);
+    while (ADI_FLAG_RESULT_SUCCESS != flagResult){};
+    
     flagResult = adi_flag_Set(ADI_FLAG_PF6);
     while (ADI_FLAG_RESULT_SUCCESS != flagResult){};
+    flagResult = adi_flag_Set(ADI_FLAG_PF5);
+    while (ADI_FLAG_RESULT_SUCCESS != flagResult){};
+    
 //    flagResult = adi_flag_Clear(ADI_FLAG_PF6);
 //    while (ADI_FLAG_RESULT_SUCCESS != flagResult){};
     
@@ -37,7 +46,8 @@ LedThread::Run()
     {
         udprintf("\r\n>>LedThread Running...");
         flagResult = adi_flag_Toggle (ADI_FLAG_PF6);
-        VDK::Sleep(5000u);
+        flagResult = adi_flag_Toggle (ADI_FLAG_PF5);
+        VDK::Sleep(5000u); //500ms
     }
 }
 
